@@ -21,7 +21,7 @@
     <button onclick="goToHome()">Home</button>
     <div style="display: flex; justify-content: center">
       <img
-        src="https://music-from-picture--backend.herokuapp.com/getImage"
+        src="http://localhost:5001/getImage"
         id="output_image"
         height="250px"
         width="250px"
@@ -36,17 +36,14 @@
       "
       id="boxes"
     ></div>
-    <button
-      style="
-        display: flex;
-        justify-content: center;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-      "
-      onclick="playMusic()"
-    >
-      Play Music
-    </button>
+    <div style="display: flex; justify-content: center">
+      <button
+        style="padding-top: 1rem; padding-bottom: 1rem"
+        onclick="playMusic()"
+      >
+        Play Music
+      </button>
+    </div>
     <script>
       var notes = []
       var rhythm = []
@@ -55,14 +52,9 @@
         let color = []
         const options = {
           method: 'GET',
-
-          mode: 'cors',
           'Content-Type': 'application/json',
         }
-        fetch(
-          'https://music-from-picture--backend.herokuapp.com/getPalette',
-          options
-        )
+        fetch('http://localhost:5001/getPalette', options)
           .then((res) => res.json())
           .then((res) => {
             console.log(res['palette'])
@@ -70,10 +62,7 @@
             displayBoxes(color)
           })
           .then((res) => {
-            fetch(
-              'https://music-from-picture--backend.herokuapp.com/getnotes',
-              options
-            )
+            fetch('http://localhost:5001/getnotes', options)
               .then((res) => res.json())
               .then((res) => {
                 console.log(`INSIDE SCRIPT.JS`, res)
