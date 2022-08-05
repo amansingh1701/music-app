@@ -115,84 +115,19 @@
         const Ds5 = new Audio('./Sounds/Ds5.mp3')
         const E5 = new Audio('./Sounds/E5.mp3')
         for (let i = 0; i < rhythm.length; i += 3) {
-          let dur = 0
+          let first, second, third
           setTimeout(function () {
             console.log(rhythm[i], rhythm[i + 1], rhythm[i + 2])
-            if (
-              rhythm[i] == 'F4' ||
-              rhythm[i + 1] == 'F4' ||
-              rhythm[i + 2] == 'F4'
-            )
-              F4.play()
-            if (
-              rhythm[i] == 'F#4' ||
-              rhythm[i + 1] == 'F#4' ||
-              rhythm[i + 2] == 'F#4'
-            )
-              Fs4.play()
-            if (
-              rhythm[i] == 'G4' ||
-              rhythm[i + 1] == 'G4' ||
-              rhythm[i + 2] == 'G4'
-            )
-              G4.play()
-            if (
-              rhythm[i] == 'G#4' ||
-              rhythm[i + 1] == 'G#4' ||
-              rhythm[i + 2] == 'G#4'
-            )
-              Gs4.play()
-            if (
-              rhythm[i] == 'A4' ||
-              rhythm[i + 1] == 'A4' ||
-              rhythm[i + 2] == 'A4'
-            )
-              A4.play()
-            if (
-              rhythm[i] == 'A#4' ||
-              rhythm[i + 1] == 'A#4' ||
-              rhythm[i + 2] == 'A#4'
-            )
-              As4.play()
-            if (
-              rhythm[i] == 'B4' ||
-              rhythm[i + 1] == 'B4' ||
-              rhythm[i + 2] == 'B4'
-            )
-              B4.play()
-            if (
-              rhythm[i] == 'C5' ||
-              rhythm[i + 1] == 'C5' ||
-              rhythm[i + 2] == 'C5'
-            )
-              C5.play()
-            if (
-              rhythm[i] == 'C#5' ||
-              rhythm[i + 1] == 'C#5' ||
-              rhythm[i + 2] == 'C#5'
-            )
-              Cs5.play()
-            if (
-              rhythm[i] == 'D5' ||
-              rhythm[i + 1] == 'D5' ||
-              rhythm[i + 2] == 'D5'
-            )
-              D5.play()
-            if (
-              rhythm[i] == 'D#5' ||
-              rhythm[i + 1] == 'D#5' ||
-              rhythm[i + 2] == 'D#5'
-            )
-              Ds5.play()
-            if (
-              rhythm[i] == 'E5' ||
-              rhythm[i + 1] == 'E5' ||
-              rhythm[i + 2] == 'E5'
-            )
-              E5.play()
-
-            if (i == 6) console.log('hello')
-          }, 750 * i)
+            first = new Audio('./Sounds/' + rhythm[i] + '.mp3')
+            second = new Audio('./Sounds/' + rhythm[i + 1] + '.mp3')
+            third = new Audio('./Sounds/' + rhythm[i + 2] + '.mp3')
+            first.play()
+            second.play()
+            third.play()
+            // first.pause()
+            // second.pause()
+            // third.pause()
+          }, 200 * i)
         }
       }
     </script>
