@@ -20,7 +20,12 @@
     <h1></h1>
     <button onclick="goToHome()">Home</button>
     <div style="display: flex; justify-content: center">
-      <img src="https://music-from-picture--backend.herokuapp.com/getImage" id="output_image" height="250px" width="250px" />
+      <img
+        src="https://music-from-picture--backend.herokuapp.com/getImage"
+        id="output_image"
+        height="250px"
+        width="250px"
+      />
     </div>
     <div
       style="
@@ -43,155 +48,162 @@
       Play Music
     </button>
     <script>
-      var notes = [];
-      var rhythm = [];
+      var notes = []
+      var rhythm = []
       window.onload = function () {
-        console.log("I am here");
-        let color = [];
+        console.log('I am here')
+        let color = []
         const options = {
-          method: "GET",
-          "Content-Type": "application/json",
-        };
-        fetch("https://music-from-picture--backend.herokuapp.com/getPalette", options)
+          method: 'GET',
+
+          mode: 'cors',
+          'Content-Type': 'application/json',
+        }
+        fetch(
+          'https://music-from-picture--backend.herokuapp.com/getPalette',
+          options
+        )
           .then((res) => res.json())
           .then((res) => {
-            console.log(res["palette"]);
-            color.push(...res["palette"]);
-            displayBoxes(color);
+            console.log(res['palette'])
+            color.push(...res['palette'])
+            displayBoxes(color)
           })
           .then((res) => {
-            fetch("https://music-from-picture--backend.herokuapp.com/getnotes", options)
+            fetch(
+              'https://music-from-picture--backend.herokuapp.com/getnotes',
+              options
+            )
               .then((res) => res.json())
               .then((res) => {
-                console.log(`INSIDE SCRIPT.JS`, res);
-                notes.push(...res["notes"]);
-                console.log(notes);
-                rhythm.push(notes[0]);
-                rhythm.push(notes[2]);
-                rhythm.push(notes[4]);
+                console.log(`INSIDE SCRIPT.JS`, res)
+                notes.push(...res['notes'])
+                console.log(notes)
+                rhythm.push(notes[0])
+                rhythm.push(notes[2])
+                rhythm.push(notes[4])
 
-                rhythm.push(notes[1]);
-                rhythm.push(notes[3]);
-                rhythm.push(notes[5]);
+                rhythm.push(notes[1])
+                rhythm.push(notes[3])
+                rhythm.push(notes[5])
 
-                rhythm.push(notes[2]);
-                rhythm.push(notes[4]);
-                rhythm.push(notes[6]);
+                rhythm.push(notes[2])
+                rhythm.push(notes[4])
+                rhythm.push(notes[6])
 
-                rhythm.push(notes[1]);
-                rhythm.push(notes[4]);
-                rhythm.push(notes[6]);
-              });
-          });
-      };
+                rhythm.push(notes[1])
+                rhythm.push(notes[4])
+                rhythm.push(notes[6])
+              })
+          })
+      }
       function goToHome() {
-        window.location.replace("index.html");
+        window.location.replace('index.html')
       }
       function displayBoxes(color) {
-        let div = "";
+        let div = ''
         for (let i in color) {
-          console.log(color[i]);
+          console.log(color[i])
           div +=
             "<div style='height: 100px;width: 60px;background-color:" +
             color[i] +
-            ";'></div>";
+            ";'></div>"
         }
-        console.log(div);
-        document.getElementById("boxes").innerHTML = div;
+        console.log(div)
+        document.getElementById('boxes').innerHTML = div
       }
       function playMusic() {
-        const F4 = new Audio("./Sounds/F4.mp3");
-        const Fs4 = new Audio("./Sounds/Fs4.mp3");
-        const G4 = new Audio("./Sounds/G4.mp3");
-        const Gs4 = new Audio("./Sounds/Gs4.mp3");
-        const A4 = new Audio("./Sounds/A4.mp3");
-        const As4 = new Audio("./Sounds/As4.mp3");
-        const B4 = new Audio("./Sounds/B4.mp3");
-        const C5 = new Audio("./Sounds/C5.mp3");
-        const Cs5 = new Audio("./Sounds/Cs5.mp3");
-        const D5 = new Audio("./Sounds/D5.mp3");
-        const Ds5 = new Audio("./Sounds/Ds5.mp3");
-        const E5 = new Audio("./Sounds/E5.mp3");
-        for (let i = 0; i <rhythm.length; i += 3) {
-          let dur=0;
+        const F4 = new Audio('./Sounds/F4.mp3')
+        const Fs4 = new Audio('./Sounds/Fs4.mp3')
+        const G4 = new Audio('./Sounds/G4.mp3')
+        const Gs4 = new Audio('./Sounds/Gs4.mp3')
+        const A4 = new Audio('./Sounds/A4.mp3')
+        const As4 = new Audio('./Sounds/As4.mp3')
+        const B4 = new Audio('./Sounds/B4.mp3')
+        const C5 = new Audio('./Sounds/C5.mp3')
+        const Cs5 = new Audio('./Sounds/Cs5.mp3')
+        const D5 = new Audio('./Sounds/D5.mp3')
+        const Ds5 = new Audio('./Sounds/Ds5.mp3')
+        const E5 = new Audio('./Sounds/E5.mp3')
+        for (let i = 0; i < rhythm.length; i += 3) {
+          let dur = 0
           setTimeout(function () {
-          console.log(rhythm[i], rhythm[i+1],rhythm[i+2]);
-          if (
-            rhythm[i] == "F4" ||
-            rhythm[i + 1] == "F4" ||
-            rhythm[i + 2] == "F4"
-          )
-            F4.play();
-          if (
-            rhythm[i] == "F#4" ||
-            rhythm[i + 1] == "F#4" ||
-            rhythm[i + 2] == "F#4"
-          )
-            Fs4.play();
-          if (
-            rhythm[i] == "G4" ||
-            rhythm[i + 1] == "G4" ||
-            rhythm[i + 2] == "G4"
-          )
-            G4.play();
-          if (
-            rhythm[i] == "G#4" ||
-            rhythm[i + 1] == "G#4" ||
-            rhythm[i + 2] == "G#4"
-          )
-            Gs4.play();
-          if (
-            rhythm[i] == "A4" ||
-            rhythm[i + 1] == "A4" ||
-            rhythm[i + 2] == "A4"
-          )
-            A4.play();
-          if (
-            rhythm[i] == "A#4" ||
-            rhythm[i + 1] == "A#4" ||
-            rhythm[i + 2] == "A#4"
-          )
-            As4.play();
-          if (
-            rhythm[i] == "B4" ||
-            rhythm[i + 1] == "B4" ||
-            rhythm[i + 2] == "B4"
-          )
-            B4.play();
-          if (
-            rhythm[i] == "C5" ||
-            rhythm[i + 1] == "C5" ||
-            rhythm[i + 2] == "C5"
-          )
-            C5.play();
-          if (
-            rhythm[i] == "C#5" ||
-            rhythm[i + 1] == "C#5" ||
-            rhythm[i + 2] == "C#5"
-          )
-            Cs5.play();
-          if (
-            rhythm[i] == "D5" ||
-            rhythm[i + 1] == "D5" ||
-            rhythm[i + 2] == "D5"
-          )
-            D5.play();
-          if (
-            rhythm[i] == "D#5" ||
-            rhythm[i + 1] == "D#5" ||
-            rhythm[i + 2] == "D#5"
-          )
-            Ds5.play();
-          if (
-            rhythm[i] == "E5" ||
-            rhythm[i + 1] == "E5" ||
-            rhythm[i + 2] == "E5"
-          )
-            E5.play();
-          
-            if(i==6)console.log("hello");
-            
-          }, 750*i);
+            console.log(rhythm[i], rhythm[i + 1], rhythm[i + 2])
+            if (
+              rhythm[i] == 'F4' ||
+              rhythm[i + 1] == 'F4' ||
+              rhythm[i + 2] == 'F4'
+            )
+              F4.play()
+            if (
+              rhythm[i] == 'F#4' ||
+              rhythm[i + 1] == 'F#4' ||
+              rhythm[i + 2] == 'F#4'
+            )
+              Fs4.play()
+            if (
+              rhythm[i] == 'G4' ||
+              rhythm[i + 1] == 'G4' ||
+              rhythm[i + 2] == 'G4'
+            )
+              G4.play()
+            if (
+              rhythm[i] == 'G#4' ||
+              rhythm[i + 1] == 'G#4' ||
+              rhythm[i + 2] == 'G#4'
+            )
+              Gs4.play()
+            if (
+              rhythm[i] == 'A4' ||
+              rhythm[i + 1] == 'A4' ||
+              rhythm[i + 2] == 'A4'
+            )
+              A4.play()
+            if (
+              rhythm[i] == 'A#4' ||
+              rhythm[i + 1] == 'A#4' ||
+              rhythm[i + 2] == 'A#4'
+            )
+              As4.play()
+            if (
+              rhythm[i] == 'B4' ||
+              rhythm[i + 1] == 'B4' ||
+              rhythm[i + 2] == 'B4'
+            )
+              B4.play()
+            if (
+              rhythm[i] == 'C5' ||
+              rhythm[i + 1] == 'C5' ||
+              rhythm[i + 2] == 'C5'
+            )
+              C5.play()
+            if (
+              rhythm[i] == 'C#5' ||
+              rhythm[i + 1] == 'C#5' ||
+              rhythm[i + 2] == 'C#5'
+            )
+              Cs5.play()
+            if (
+              rhythm[i] == 'D5' ||
+              rhythm[i + 1] == 'D5' ||
+              rhythm[i + 2] == 'D5'
+            )
+              D5.play()
+            if (
+              rhythm[i] == 'D#5' ||
+              rhythm[i + 1] == 'D#5' ||
+              rhythm[i + 2] == 'D#5'
+            )
+              Ds5.play()
+            if (
+              rhythm[i] == 'E5' ||
+              rhythm[i + 1] == 'E5' ||
+              rhythm[i + 2] == 'E5'
+            )
+              E5.play()
+
+            if (i == 6) console.log('hello')
+          }, 750 * i)
         }
       }
     </script>
