@@ -59,8 +59,9 @@
             .then((res) => res.json())
             .then((res) => {
               console.log(`Response from Notes`, res);
+            }).then((res)=>{
+              window.location.replace("play.html");
             });
-          window.location.replace("play.html");
         }
       </script>
     </div>
