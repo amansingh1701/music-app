@@ -52,7 +52,10 @@
         let color = []
         const options = {
           method: 'GET',
-          'Content-Type': 'application/json',
+          mode: "cors",
+          headers: {
+              "Content-Type": "application/json",
+            }
         }
         fetch('https://music-from-picture--backend.herokuapp.com/getPalette', options)
           .then((res) => res.json())
