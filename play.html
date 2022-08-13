@@ -21,7 +21,7 @@
     <button onclick="goToHome()">Home</button>
     <div style="display: flex; justify-content: center">
       <img
-        src="http://localhost:5001/getImage"
+        src="https://music-from-picture--backend.herokuapp.com/getImage"
         id="output_image"
         height="250px"
         width="250px"
@@ -54,7 +54,7 @@
           method: 'GET',
           'Content-Type': 'application/json',
         }
-        fetch('http://localhost:5001/getPalette', options)
+        fetch('https://music-from-picture--backend.herokuapp.com/getPalette', options)
           .then((res) => res.json())
           .then((res) => {
             console.log(res['palette'])
@@ -62,7 +62,7 @@
             displayBoxes(color)
           })
           .then((res) => {
-            fetch('http://localhost:5001/getnotes', options)
+            fetch('https://music-from-picture--backend.herokuapp.com/getnotes', options)
               .then((res) => res.json())
               .then((res) => {
                 console.log(`INSIDE SCRIPT.JS`, res)
@@ -102,18 +102,6 @@
         document.getElementById('boxes').innerHTML = div
       }
       function playMusic() {
-        const F4 = new Audio('./Sounds/F4.mp3')
-        const Fs4 = new Audio('./Sounds/Fs4.mp3')
-        const G4 = new Audio('./Sounds/G4.mp3')
-        const Gs4 = new Audio('./Sounds/Gs4.mp3')
-        const A4 = new Audio('./Sounds/A4.mp3')
-        const As4 = new Audio('./Sounds/As4.mp3')
-        const B4 = new Audio('./Sounds/B4.mp3')
-        const C5 = new Audio('./Sounds/C5.mp3')
-        const Cs5 = new Audio('./Sounds/Cs5.mp3')
-        const D5 = new Audio('./Sounds/D5.mp3')
-        const Ds5 = new Audio('./Sounds/Ds5.mp3')
-        const E5 = new Audio('./Sounds/E5.mp3')
         for (let i = 0; i < rhythm.length; i += 3) {
           let first, second, third
           setTimeout(function () {
@@ -127,7 +115,7 @@
             // first.pause()
             // second.pause()
             // third.pause()
-          }, 200 * i)
+          }, 500 * i)
         }
       }
     </script>
