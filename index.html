@@ -17,7 +17,13 @@
   </head>
   <body
     style="
-      background: url(./background.jpeg);
+      /* overflow:hidden; */
+      background: rgb(195, 69, 255);
+      background: linear-gradient(
+        0deg,
+        rgba(195, 69, 255, 1) 10%,
+        rgba(255, 126, 205, 1) 90%
+      );
       height: 100vh;
       background-repeat: no-repeat;
       width: 100%;
@@ -39,8 +45,8 @@
         margin: 3rem;
       "
     >
-      <img src="./Main Title.svg" onclick="goToHome()" />
-      <img src="./About the page.svg" alt="About" />
+      <img src="./Group 9.png" style="cursor: pointer;" onclick="goToHome()" />
+      <img src="./ABOUT THE PAGE.png" style="cursor: pointer;" alt="About" onclick="goToAbout()" />
     </div>
     <div
       style="
@@ -59,15 +65,15 @@
     >
       <img
         hidden
-        style="padding-top: 1rem; padding-bottom: 1rem"
+        style="margin-top: 1rem; margin-bottom: 1rem"
         id="output_image"
         height="500px"
         width="500px"
       />
       <form action="#">
-        <div id="myDiv">
+        <div id="myDiv" style="cursor: pointer;">
           <label for="file-input">
-            <img src="./Upload Button.svg" />
+            <img src="./Upload Button.svg" style="cursor: pointer;" />
           </label>
           <input
             style="display: none"
@@ -77,8 +83,8 @@
             onchange="preview_image(event)"
           />
         </div>
-        <div id="submit" hidden>
-          <label for="file-submit">
+        <div id="submit" hidden style="cursor: pointer;">
+          <label for="file-submit" style="cursor:pointer;">
             <img src="./Submit Button.svg" />
           </label>
           <button
@@ -151,6 +157,12 @@
           .then((res) => {
             console.log(`Response from Notes`, res)
           })
+      }
+      function goToHome() {
+        window.location.replace('index.html')
+      }
+      function goToAbout() {
+        window.location.replace('About.html')
       }
     </script>
   </body>

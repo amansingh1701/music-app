@@ -18,7 +18,12 @@
   </head>
   <body
     style="
-      background: url(./background.jpeg);
+      background: rgb(195, 69, 255);
+      background: linear-gradient(
+        0deg,
+        rgba(195, 69, 255, 1) 10%,
+        rgba(255, 126, 205, 1) 90%
+      );
       height: 100vh;
       background-repeat: no-repeat;
       width: 100%;
@@ -28,28 +33,18 @@
   >
     <div
       style="
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
         margin: 3rem;
       "
+
     >
-      <img src="./Main Title.svg" onclick="goToHome()" />
+      <img src="./Group 9.png" style="cursor: pointer;" onclick="goToHome()" />
     </div>
-    <div
-      style="
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      "
-    >
+    <div style="display: flex; justify-content: center; align-items: center; margin-top: 5rem;">
       <img
-        style="margin-left: 3rem"
+        style="margin-left: 3rem;max-width: 80%;max-height: 80%;"
         src="https://music-from-picture--backend.herokuapp.com/getImage"
         id="output_image"
-        height="500px"
-        width="500px"
+        width="650px"
       />
       <div
         class="right"
@@ -70,18 +65,18 @@
           "
         >
           <div
-            style="display: flex; flex-direction: column; align-items: center"
+            style="display: flex; flex-direction: column; align-items: center;cursor: pointer;"
           >
-            <label for="play-music">
+            <label for="play-music" style="cursor: pointer;">
               <img src="./Play Button.svg" height="150px" />
             </label>
             <button id="play-music" onclick="playMusic()" hidden></button>
-            <label for="play-music" style="margin-top: 2rem">
+            <label for="play-music" style="margin-top: 2rem;cursor: pointer;">
               <img src="./PLAY YOUR SOUND.svg" alt="" />
             </label>
           </div>
 
-          <div
+          <!-- <div
             style="display: flex; flex-direction: column; align-items: center"
           >
             <label for="download-music">
@@ -91,16 +86,16 @@
             <label for="download-music" style="margin-top: 2rem">
               <img src="./DOWNLOAD WAV.svg" alt="" />
             </label>
-          </div>
+          </div> -->
 
           <div
-            style="display: flex; flex-direction: column; align-items: center"
+            style="display: flex; flex-direction: column; align-items: center;cursor: pointer;"
           >
-            <label for="go-home">
+            <label for="go-home" style="cursor:pointer;">
               <img src="./Home Button.svg" height="150px" />
             </label>
             <button id="go-home" onclick="goToHome()" hidden></button>
-            <label for="go-home" style="margin-top: 2rem">
+            <label for="go-home" style="margin-top: 2rem;cursor: pointer;">
               <img src="./TRY ANOTHER IMAGE.svg" alt="" />
             </label>
           </div>
@@ -166,7 +161,7 @@
         for (let i in color) {
           console.log(color[i])
           div +=
-            "<div style='height: 100px;width: 60px;background-color:" +
+            "<div style='box-shadow: 8px 8px 10px 1px rgba(0, 0, 0, .5);margin-right:30px;height: 120px;width: 75px;background-color:" +
             color[i] +
             ";'></div>"
         }
